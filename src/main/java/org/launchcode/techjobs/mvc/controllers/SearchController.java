@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 
 import static org.launchcode.techjobs.mvc.controllers.ListController.columnChoices;
+import static org.launchcode.techjobs.mvc.controllers.ListController.tableChoices;
 
 
 /**
@@ -26,6 +27,15 @@ public class SearchController {
 
 
     // TODO #3 - Create a handler to process a search request and render the updated search view.
+//    @GetMapping("search")
+//    public String renderSearchForm(Model model) {
+//    model.addAttribute("searchTerm", tableChoices);
+//    model.addAttribute("searchType", columnChoices);
+//
+//
+//        return "/results";
+//    }
+
 
     @PostMapping(value = "results")
     public String displaySearchResults(Model model, @RequestParam String searchType, @RequestParam(required=false) String searchTerm) {
@@ -40,6 +50,6 @@ public class SearchController {
         model.addAttribute("jobs", jobs);
         model.addAttribute("columns", columnChoices);
 
-        return "results";
+        return "search";
     }
 }
